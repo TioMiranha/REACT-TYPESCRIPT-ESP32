@@ -3,7 +3,7 @@ import { Input } from "../Input";
 import { DefaultButton } from "../DefaultButton";
 import { Check, X } from "lucide-react";
 import { Heading } from "../Heading";
-import { AccordionItem } from "../AccordionItem";
+//import { AccordionItem } from "../AccordionItem";
 
 import styles from './style.module.css'
 
@@ -24,37 +24,18 @@ export function InputModal({ isOpen, onClose }: InputModalProps) {
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>
           <div className={styles.modalHeader}>
-            <Heading>Defina as configurações da tag</Heading>
+            <Heading>Realizar Login</Heading>
           </div>
           <div className={styles.modalBody}>
-            <AccordionItem title="Temperatura">
 
-              <Input id={"Tag1"} labelText={"Digite um valor"} type="text" placeholder="" />
+            <Input id={"Tag1"} labelText={"Digite o seu nome de usuário"} type="text" placeholder="Ex: User..." />
 
-              <Input id={"Io"} labelText={"Digite outro valor"} type="text" placeholder="" />
-
-            </AccordionItem>
-
-            <AccordionItem title="Digital">
-
-              <Input id={"Tag1"} labelText={"Digite um valor"} type="text" placeholder="" />
-
-              <Input id={"Io"} labelText={"Digite outro valor"} type="text" placeholder="" />
-
-            </AccordionItem>
-
-            <AccordionItem title="Digital">
-
-              <Input id={"Tag1"} labelText={"Digite um valor"} type="text" placeholder="" />
-
-              <Input id={"Io"} labelText={"Digite outro valor"} type="text" placeholder="" />
-
-            </AccordionItem>
+            <Input id={"Io"} labelText={"Digite a sua senha"} type="text" placeholder="Ex: 12345678..." />
 
           </div>
           <div className={styles.modalButton}>
-            <DefaultButton color="red" onClick={onClose} type="button" icon={<X />} >Cancelar</DefaultButton>
-            <DefaultButton onClick={() => alert(`Enviado ${inputValue}`)} type="button" icon={<Check />}>Enviar</DefaultButton>
+            <DefaultButton color="red" onClick={onClose} type="button" icon={<X />} ></DefaultButton>
+            <DefaultButton onClick={() => alert(`Enviado ${inputValue}`)} type="button" icon={<Check />}></DefaultButton>
           </div>
         </div>
       </div>
