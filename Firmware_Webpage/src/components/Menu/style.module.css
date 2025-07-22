@@ -1,0 +1,67 @@
+.menu {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  max-width: 100vw;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  padding: 2.5rem;
+  background-color: var(--primary-dark);
+  gap: 1.6rem;
+}
+
+
+.menuContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: auto;
+  gap: 1.2rem;
+}
+
+.menuLogo {
+  margin-right: auto;
+}
+
+.menuLink {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary);
+  color: var(--text-over-primary);
+  transition: all 0.1s ease-in-out;
+  margin: 0;
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  min-width: auto;
+}
+
+
+.menuLink:hover {
+  filter: brightness(80%);
+}
+
+.menuLink svg {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  /* Melhora o alinhamento */
+}
+
+/* Versão para desktop com espaçamento reduzido */
+@media (min-width: 2160px) {
+  .menu {
+    gap: 0.3rem;
+    /* Espaçamento ainda menor em telas grandes */
+    padding: 0.4rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menuLink {
+    padding: 0.3rem 0.5rem;
+  }
+}

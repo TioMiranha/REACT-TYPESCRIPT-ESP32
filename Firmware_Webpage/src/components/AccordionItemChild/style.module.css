@@ -1,0 +1,50 @@
+.accordionItem {
+  position: relative;
+  display: flex;
+  width: 90%;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
+}
+
+.accordionHeader {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 35rem;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  font-size: 2rem;
+  font-style: italic;
+  transition: 0.2s;
+  color: var(--gray-100);
+  border-color: var(--gray-200);
+  background-color: var(--gray-900);
+}
+
+.accordionHeader:hover {
+  background-color: var(--gray-800);
+}
+
+.accordionHeader svg {
+  size: 0.6rem;
+}
+
+.accordionContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1.2rem;
+  padding: 0.5rem 0 1rem 0;
+  animation: 0.3s ease-in-out;
+  text-align: center;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  background-color: var(--gray-900);
+  gap: 1.6rem;
+}
