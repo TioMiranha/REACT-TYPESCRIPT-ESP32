@@ -3,6 +3,8 @@ import { Container } from "../../components/Container";
 import { MainTemplate } from "../../components/templates/MainTemplate";
 import { ModalConfig } from "../../configs/ModalConfig";
 
+//import style from './style.module.css'
+
 export function HomeConfig() {
   return (
     <MainTemplate>
@@ -11,6 +13,6 @@ export function HomeConfig() {
           <ModalConfig />
         </AccordionItem>
       </Container>
-    </MainTemplate>
+    </MainTemplate >
   );
 }
