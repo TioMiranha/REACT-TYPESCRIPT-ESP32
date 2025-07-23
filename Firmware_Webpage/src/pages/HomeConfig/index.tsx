@@ -1,4 +1,5 @@
-import { AccordionItem } from "../../components/AccordionItem";
+//import { AccordionItem } from "../../components/AccordionItem";
+import { AccordionItemDad } from "../../components/AccordionItemDad";
 import { Container } from "../../components/Container";
 import { MainTemplate } from "../../components/templates/MainTemplate";
 import { ModalConfig } from "../../configs/ModalConfig";
@@ -9,9 +10,9 @@ export function HomeConfig() {
   return (
     <MainTemplate>
       <Container>
-        <AccordionItem title='RTD'>
+        <AccordionItemDad title='RTD'>
           <ModalConfig />
-        </AccordionItem>
+        </AccordionItemDad>
       </Container>
     </MainTemplate >
   );
