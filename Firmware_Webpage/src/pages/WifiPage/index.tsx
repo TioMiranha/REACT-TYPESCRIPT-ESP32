@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+//import { useState } from 'react'
 import { AccordionItem } from '../../components/AccordionItem'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
@@ -10,7 +10,7 @@ import style from './style.module.css'
 import { Check } from 'lucide-react'
 
 export function WifiPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  //const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <MainTemplate>
@@ -37,7 +37,7 @@ export function WifiPage() {
 
                   <Input id={"Io"} labelText={"Digite a sua senha"} type="text" placeholder="Ex: 12345678..." />
 
-                  <DefaultButton onClick={() => alert(`Enviado ${isModalOpen}`)} type="button" icon={<Check />}></DefaultButton>
+                  <DefaultButton /*onClick={() => alert(`Enviado ${isModalOpen}`)}*/ type="button" icon={<Check />}></DefaultButton>
                 </AccordionItem>
               </div>
               <div className={style.wifiAP}>
@@ -50,7 +50,7 @@ export function WifiPage() {
 
                   <Input id={"Io"} labelText={"Digite a sua senha"} type="text" placeholder="Ex: 12345678..." />
 
-                  <DefaultButton onClick={() => alert(`Enviado ${isModalOpen}`)} type="button" icon={<Check />}></DefaultButton>
+                  <DefaultButton /*onClick={() => alert(`Enviado ${isModalOpen}`)}*/ type="button" icon={<Check />}></DefaultButton>
                 </AccordionItem>
               </div>
             </div>

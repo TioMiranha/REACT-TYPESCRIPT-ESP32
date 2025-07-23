@@ -39,7 +39,7 @@ export function Menu() {
   return (
     <nav className={styles.menu}>
 
-      <RouterLink href="/" className={styles.menuLogo} aria-label='Home' title='Home'> <Logo /> </RouterLink>
+      <div className={styles.menuLogo} aria-label='Home' title='Home'> <Logo /> </div>
 
       <div className={styles.menuContent}>
         <RouterLink className={styles.menuLink} href="/wifi" aria-label='Configurações de Wifi' title='Configurações de Wifi'>
