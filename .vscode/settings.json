@@ -31,5 +31,12 @@
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
-  }
+  },
+  "idf.espIdfPath": "/home/eduardo-silva/esp/esp-idf",
+  "idf.toolsPath": "/home/eduardo-silva/.espressif",
+  "idf.port": "/dev/ttyUSB0",
+  "idf.openOcdConfigs": [
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32.cfg"
+  ]
 }
