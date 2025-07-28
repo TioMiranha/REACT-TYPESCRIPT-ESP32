@@ -5,12 +5,49 @@ import { Heading } from "../../components/Heading";
 import { MainTemplate } from "../../components/templates/MainTemplate";
 
 import style from './style.module.css'
-//import { useState } from "react";
+import { useState } from "react";
 import { AccordionItem } from "../../components/AccordionItem";
 import { Input } from "../../components/Input";
+import { validateLogin } from "../../utils/ValidationInput";
 
 export function ConfigPage() {
-  //const [isModalOpen, setInputValue] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function handleSetNewConfigUser(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const validation = validateLogin(username, password, e);
+
+    if (!validation.isValid) {
+      return;
+    }
+
+    try {
+      const ipUrl = window.location.hostname;
+      const endpoint = `${window.location.protocol}//${ipUrl}/*`;
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username, password
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro HTTP: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Resposta do servidor:", data);
+
+      return data;
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <MainTemplate>
@@ -29,17 +66,20 @@ export function ConfigPage() {
           </section>
 
           <section>
-            <div className={style.contentConfig}>
-              <AccordionItem title='Alterar informações de login'>
-                <Input id={"Tag1"} labelText={"Digite o seu novo nome de usuário"} type="text" placeholder="Ex: User..." />
+            <form onSubmit={handleSetNewConfigUser}>
+              <div className={style.contentConfig}>
+                <AccordionItem title='Alterar informações de login'>
 
-                <Input id={"Io"} labelText={"Digite a sua nova senha"} type="text" placeholder="Ex: 12345678..." />
+                  <Input value={username} id="user-NewConfig" onChange={(e) => setUsername(e.target.value)} labelText={"Digite o seu nome de usuário"} type="text" placeholder="Ex: admin..." />
 
-                <div className={style.centralButtonConfig}>
-                  <DefaultButton type="button" icon={<Check />}></DefaultButton>
-                </div>
-              </AccordionItem>
-            </div>
+                  <Input value={password} id="password-NewConfig" onChange={(e) => setPassword(e.target.value)} labelText={"Digite a sua senha"} type="password" placeholder="Ex: admin..." />
+
+                  <div className={style.centralButtonConfig}>
+                    <DefaultButton type="submit" icon={<Check />}></DefaultButton>
+                  </div>
+                </AccordionItem>
+              </div>
+            </form>
           </section>
         </div>
       </Container >

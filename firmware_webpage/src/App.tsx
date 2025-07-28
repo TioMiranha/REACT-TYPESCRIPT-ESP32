@@ -1,11 +1,15 @@
+import { MessagesCoontainer } from './components/MessagesCoontainer';
+import { MainRouter } from './router/MainRouter';
+
 import './styles/theme.css';
 import './styles/global.css';
-import { MainRouter } from './router/MainRouter';
 
 export function App() {
   return (
     <>
-      <MainRouter />
+      <MessagesCoontainer>
+        <MainRouter />
+      </MessagesCoontainer>
     </>
   )
 }
