@@ -3,9 +3,7 @@
 /**
  * @brief 
  * * @param req 
- * @return 
- *
- *
+ * @return
  */
 typedef char *(*func_t)(arg_t *args);
 
@@ -13,7 +11,7 @@ char led1_status[4] = "OFF";
 char led2_status[4] = "OFF";
 
 static void initGPIOS();
-void selectControl(const char *led, const char *acao);
+void selectControl(const char *state);
 
 
 char *stateLed(arg_t *args)
@@ -21,26 +19,24 @@ char *stateLed(arg_t *args)
     cJSON *json = cJSON_Parse(args->rcv);
     if (json == NULL)
     {
-        ESP_LOGE(TAG_HTTP, "Erro fazer Parse no json");
+        ESP_LOGE(TAG_LED, "Erro fazer Parse no json");
     }
 
-    cJSON *led = cJSON_GetObjectItem(json, "led");
-    cJSON *acao = cJSON_GetObjectItem(json, "acao");
+    cJSON *state = cJSON_GetObjectItem(json, "state");
 
-    if (!cJSON_IsString(led) || !cJSON_IsString(acao))
+    if (state == NULL || !cJSON_IsString(state))
     {
-        ESP_LOGE(TAG_HTTP, "Valores de status de cada led inválido ou não encontrado");
+        ESP_LOGE(TAG_LED, "Valores de status de cada led inválido ou não encontrado");
         cJSON_Delete(json);
     }
     
-    ESP_LOGI(TAG_HTTP, "Controlando o led [%s] que esta no estado [%s]", led->valuestring, acao->valuestring);
+    ESP_LOGI(TAG_LED, "Controlando o led que esta no estado [%s]", state->valuestring);
 
-    selectControl(led->valuestring, acao->valuestring);
+    selectControl(state->valuestring);
 
     cJSON *response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "status", "success");
-    cJSON_AddStringToObject(response, "led", led->valuestring);
-    cJSON_AddStringToObject(response, "acao", acao->valuestring);
+    cJSON_AddStringToObject(response, "state", state->valuestring);
 
     char *response_str = cJSON_Print(response);
 
@@ -49,16 +45,12 @@ char *stateLed(arg_t *args)
     return response_str;
 }
 
-void selectControl(const char *led, const char *acao)
+void selectControl(const char *state)
 {
     initGPIOS();
-    if (strcmp(led, "led1") == 0)
+    if (strcmp(state, "state") == 0)
     {
-        gpio_set_level(LED1, strcmp(acao, "on") == 0 ? 1 : 0);
-    }
-    else if (strcmp(led, "led2") == 0)
-    {
-        gpio_set_level(LED2, strcmp(acao, "on") == 0 ? 1 : 0);
+        gpio_set_level(LED1, strcmp(state, "on") == 0 ? 1 : 0);
     }
 }
 

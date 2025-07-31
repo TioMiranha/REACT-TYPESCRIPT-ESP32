@@ -37,7 +37,7 @@ static esp_err_t led_get_handler(httpd_req_t *req) {
     char *led = stateLed(&args);
     if (!led)
     {
-        ESP_LOGI(TAG_HTTP, "Erro no 'led' dentro de led_get_handler");
+        ESP_LOGI(TAG_LED, "Erro no 'led' dentro de led_get_handler");
         return ESP_FAIL;
     }
     httpd_resp_sendstr(req, led);
@@ -59,7 +59,7 @@ httpd_handle_t start_webserver() {
             { .uri = "/assets/index.js", .method = HTTP_GET, .handler = js_get_handler, .user_ctx = NULL },
             { .uri = "/index.js", .method = HTTP_GET, .handler = js_get_handler, .user_ctx = NULL },
             { .uri = "/assets/index.css", .method = HTTP_GET, .handler = css_get_handler, .user_ctx = NULL },
-            { .uri = "/favicon.ico", .method = HTTP_GET, .handler = favicon_get_handler, .user_ctx = NULL }
+            { .uri = "/favicon.ico", .method = HTTP_GET, .handler = favicon_get_handler, .user_ctx = NULL },
             { .uri = "/led", .method = HTTP_POST, .handler = led_get_handler, .user_ctx = NULL },
         };
         

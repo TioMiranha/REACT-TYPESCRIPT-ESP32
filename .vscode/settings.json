@@ -40,6 +40,8 @@
     "target/esp32.cfg"
   ],
   "files.associations": {
-    "server.h": "c"
-  }
+    "server.h": "c",
+    "ledconfig.h": "c"
+  },
+  "idf.pythonInstallPath": "/usr/bin/python3"
 }

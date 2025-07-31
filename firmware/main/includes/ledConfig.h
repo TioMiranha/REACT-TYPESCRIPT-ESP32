@@ -7,5 +7,7 @@ extern char led2_status[4];
 #define LED1 32
 #define LED2 33
 
+#define TAG_LED "LED_ACTUATOR"
+
 char *stateLed(arg_t *args);
-void selectControl(const char *led, const char *acao);
+void selectControl(const char *state);

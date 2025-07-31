@@ -14,10 +14,13 @@
 #include "esp_netif.h"
 #include "esp_mac.h"
 #include "lwip/ip4_addr.h"
+#include "cJSON.h"  
+
 
 #include "driver/gpio.h"
 
-#include "./structData.h"
+#include "./structs/structData.h"
+#include "./ledConfig.h"
 
 #define WIFI_SSID      "ESP32-AP"
 #define WIFI_PASS      "12345678"
@@ -38,7 +41,7 @@ extern const uint8_t assets_index_css_end[]   asm("_binary_index_css_end");
 
 #define TAG "EMBEDDED-AP"
 
-extern char *extract_req(httpd_req_t *req)
+char *extract_req(httpd_req_t *req);
 httpd_handle_t start_webserver();
 void wifi_init_softap();
 
