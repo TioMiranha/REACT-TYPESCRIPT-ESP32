@@ -12,7 +12,7 @@
 .accordionHeader {
   box-sizing: border-box;
   display: flex;
-  width: 75vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -32,18 +32,16 @@
 
 .accordionHeader svg {
   width: 1.5rem;
-  /* Corrigido: substituído 'size' por 'width/height' */
+
   height: 1.5rem;
   transition: transform 0.3s ease;
-  /* Adicionado efeito de transição */
 }
 
 .accordionContent {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 75vw;
-  min-width: 50vw;
+  width: 100%;
   padding: 1rem;
   background-color: var(--gray-200);
   border-radius: 0 0 1.2rem 1.2rem;

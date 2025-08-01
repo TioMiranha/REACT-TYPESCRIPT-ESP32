@@ -65,8 +65,8 @@ export function ConfigPage() {
             </div>
           </section>
 
-          <section>
-            <form onSubmit={handleSetNewConfigUser}>
+          <form onSubmit={handleSetNewConfigUser}>
+            <section>
               <div className={style.contentConfig}>
                 <AccordionItem title='Alterar informações de login'>
 
@@ -74,13 +74,11 @@ export function ConfigPage() {
 
                   <Input value={password} id="password-NewConfig" onChange={(e) => setPassword(e.target.value)} labelText={"Digite a sua senha"} type="password" placeholder="Ex: admin..." />
 
-                  <div className={style.centralButtonConfig}>
-                    <DefaultButton type="submit" icon={<Check />}></DefaultButton>
-                  </div>
+                  <DefaultButton type="submit" icon={<Check />}></DefaultButton>
                 </AccordionItem>
               </div>
-            </form>
-          </section>
+            </section>
+          </form>
         </div>
       </Container >
     </MainTemplate >
