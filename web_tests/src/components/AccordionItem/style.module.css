@@ -1,0 +1,82 @@
+.accordionItem {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.accordionHeader {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 1.2rem 1.2rem 0 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-style: italic;
+  transition: all 0.2s ease;
+  color: var(--gray-900);
+  background-color: var(--gray-100);
+  gap: 1.5rem;
+}
+
+.accordionHeader:hover {
+  background-color: var(--gray-300);
+}
+
+.accordionHeader svg {
+  width: 1.5rem;
+
+  height: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.accordionContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--gray-200);
+  border-radius: 0 0 1.2rem 1.2rem;
+  gap: 1.2rem;
+  color: var(--gray-900);
+  animation: fadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .accordionHeader {
+    padding: 0.8rem;
+    gap: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .accordionHeader svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .accordionContent {
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+}
