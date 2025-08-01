@@ -116,7 +116,6 @@ export function validateLogin(usuario: string, senha: string, e?: React.FormEven
       maxLength: 25
     }
   };
-
   return ValidationInput({ usuario, senha }, config, e);
 }
 

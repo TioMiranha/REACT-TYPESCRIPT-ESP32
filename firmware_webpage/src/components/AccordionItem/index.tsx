@@ -12,9 +12,8 @@ export function AccordionItem({ title, children }: AccordionItemProps) {
   const [isOpen, setInputValue] = useState(false);
 
   return (
-
     <div className={styles.AccordionItem}>
-      <button
+      <button type='button'
         className={styles.accordionHeader}
         onClick={() => setInputValue(!isOpen)}
       >

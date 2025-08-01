@@ -17,7 +17,7 @@ export function ConfigPage() {
   async function handleSetNewConfigUser(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const validation = validateLogin(username, password, e);
+    const validation = validateLogin(username, password);
 
     if (!validation.isValid) {
       return;
@@ -74,7 +74,7 @@ export function ConfigPage() {
 
                   <Input value={password} id="password-NewConfig" onChange={(e) => setPassword(e.target.value)} labelText={"Digite a sua senha"} type="password" placeholder="Ex: admin..." />
 
-                  <DefaultButton type="submit" icon={<Check />}></DefaultButton>
+                  <DefaultButton id="btn-sub" icon={<Check />}></DefaultButton>
                 </AccordionItem>
               </div>
             </section>
