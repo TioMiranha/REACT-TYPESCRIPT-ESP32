@@ -10,3 +10,9 @@
 .content {
   margin: 3.2rem;
 }
+
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
+}

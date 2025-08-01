@@ -67,6 +67,7 @@
     padding: 0.8rem;
     gap: 1rem;
     font-size: 1.4rem;
+    width: 100%;
   }
 
   .accordionHeader svg {
@@ -79,58 +80,3 @@
     gap: 1rem;
   }
 }
-
-/* 
-
-.accordionItem {
-  position: relative;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.accordionHeader {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  padding: 1rem 0;
-  cursor: pointer;
-  border-top-left-radius: 1.2rem;
-  border-top-right-radius: 1.2rem;
-  font-size: 2rem;
-  font-style: italic;
-  transition: 0.2s;
-  color: var(--gray-900);
-  border-color: var(--gray-200);
-  background-color: var(--gray-100);
-  gap: 2.5rem;
-}
-
-.accordionHeader:hover {
-  background-color: var(--gray-300);
-}
-
-.accordionHeader svg {
-  size: 0.6rem;
-}
-
-.accordionContent {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 100vw;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0 1rem 0;
-  background-color: var(--gray-200);
-  border-radius: 0 0 1.2rem 1.2rem;
-  gap: 1.2rem;
-  animation: 0.3s ease-in-out;
-  color: var(--gray-900);
-}*/
