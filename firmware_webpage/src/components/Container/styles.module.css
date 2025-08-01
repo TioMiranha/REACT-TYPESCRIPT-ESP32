@@ -14,5 +14,11 @@
 @media (max-width: 900px) {
   .container {
     width: 100%;
+    margin: 0;
+  }
+
+  .content {
+    width: 100%;
+    margin: 4.4rem 0 0 auto;
   }
 }
