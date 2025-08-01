@@ -65,3 +65,17 @@
     padding: 0.3rem 0.5rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .menu {
+    height: 10.5rem;
+    gap: 1.6rem;
+    padding: 2.5rem;
+  }
+
+  .menuLink svg {
+    width: 3.4rem;
+    height: 4.4rem;
+  }
+
+}

@@ -28,3 +28,10 @@
   width: 6.4rem;
   height: 6.4rem;
 }
+
+@media screen and (max-width: 768px) {
+  .logoLink svg {
+    width: 10.4rem;
+    height: 6.4rem;
+  }
+}
