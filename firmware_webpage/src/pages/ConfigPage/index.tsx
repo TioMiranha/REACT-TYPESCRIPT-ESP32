@@ -8,7 +8,7 @@ import style from './style.module.css'
 import { useState } from "react";
 import { AccordionItem } from "../../components/AccordionItem";
 import { Input } from "../../components/Input";
-import { validateLogin } from "../../utils/ValidationInput";
+import { validateLogin } from "../../utils/ValidationInputLogin";
 
 export function ConfigPage() {
   const [username, setUsername] = useState('');

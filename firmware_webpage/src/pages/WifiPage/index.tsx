@@ -8,7 +8,8 @@ import { Heading } from '../../components/Heading'
 import { Input } from '../../components/Input'
 import { MainTemplate } from '../../components/templates/MainTemplate'
 import { Check } from 'lucide-react'
-import { validateLogin, validateWifi } from '../../utils/ValidationInput'
+import { validateLogin } from '../../utils/ValidationInputLogin'
+import { validateWifi } from '../../utils/ValidationInputWifi'
 
 import style from './style.module.css'
 

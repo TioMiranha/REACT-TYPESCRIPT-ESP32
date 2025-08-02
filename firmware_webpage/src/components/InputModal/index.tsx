@@ -7,7 +7,7 @@ import { Heading } from "../Heading";
 //import { AccordionItem } from "../AccordionItem";
 
 import styles from './style.module.css'
-import { validateLogin } from "../../utils/ValidationInput";
+import { validateLogin } from "../../utils/ValidationInputLogin";
 
 type InputModalProps = {
   isOpen: boolean;
