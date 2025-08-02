@@ -51,6 +51,10 @@
   overflow: hidden;
 }
 
+.accordionContent input {
+  color: var(--gray-100);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

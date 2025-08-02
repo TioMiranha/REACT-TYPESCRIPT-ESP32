@@ -25,12 +25,12 @@ export function WifiPage() {
   async function handleWifiConfig(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const validation = validateWifi(IP, Gateway, Mask, DNS, MAC, e);
-    const nameNetWorkPassword = validateLogin(netWorkName, password, e)
+    const validation = validateWifi(IP, Gateway, Mask, DNS, MAC);
+    if (!validation.isValid) return;
 
-    if (!validation.isValid && !nameNetWorkPassword.isValid) {
-      return;
-    }
+    const nameNetWorkPassword = validateLogin(netWorkName, password);
+    if (!nameNetWorkPassword.isValid) return;
+
   }
 
   return (
@@ -50,7 +50,7 @@ export function WifiPage() {
           </div>
         </section>
 
-        <form onSubmit={e => handleWifiConfig(e)}>
+        <form id='form-ethernet' onSubmit={e => handleWifiConfig(e)}>
           <section className={style.ethernetSection}>
             <AccordionItem title='Configuração Ethernet'>
 
@@ -73,7 +73,7 @@ export function WifiPage() {
           </section>
         </form>
 
-        <form onSubmit={handleWifiConfig}>
+        <form id='form-ap' onSubmit={handleWifiConfig}>
           <section>
             <div className={style.wifiAP}>
               <AccordionItem title='Configuração Wi-Fi AP'>
