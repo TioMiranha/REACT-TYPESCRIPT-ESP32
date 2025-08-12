@@ -8,8 +8,7 @@ import { Heading } from '../../components/Heading'
 import { Input } from '../../components/Input'
 import { MainTemplate } from '../../components/templates/MainTemplate'
 import { Check } from 'lucide-react'
-import { validateLogin } from '../../utils/ValidationInputLogin'
-import { validateWifi } from '../../utils/ValidationInputWifi'
+import { validateSettingsWifi, validateWifi } from '../../utils/ValidationInputWifi'
 
 import style from './style.module.css'
 import { AccordionItem } from '../../components/AccordionItems/AccordionItem'
@@ -26,11 +25,11 @@ export function WifiPage() {
   async function handleWifiConfig(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const validation = validateWifi(IP, Gateway, Mask, DNS, MAC);
+    const validation = validateWifi(IP, Gateway, Mask, DNS, MAC, e);
     if (!validation.isValid) return;
 
-    const nameNetWorkPassword = validateLogin(netWorkName, password);
-    if (!nameNetWorkPassword.isValid) return;
+    const validationInput = validateSettingsWifi(netWorkName, password, e);
+    if (!validationInput.isValid) return;
 
   }
 

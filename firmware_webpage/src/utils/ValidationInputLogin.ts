@@ -21,14 +21,17 @@ export function ValidationInput(
 
     if (rule.minLength && value.length < rule.minLength) {
       errors.push(`${fieldName} deve ter pelo menos ${rule.minLength} caracteres`);
+      break;
     }
 
     if (rule.maxLength && value.length > rule.maxLength) {
       errors.push(`${fieldName} deve ter no máximo ${rule.maxLength} caracteres`);
+      break;
     }
 
     if (rule.pattern && !rule.pattern.test(value)) {
       errors.push(rule.customMessage || `${fieldName} está em formato inválido`);
+      break;
     }
   }
 

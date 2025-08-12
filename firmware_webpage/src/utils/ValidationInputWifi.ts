@@ -12,6 +12,7 @@ export function ValidationInputWifi(
 
   for (const [fieldName, value] of Object.entries(formData)) {
     const rule = config[fieldName];
+
     if (!rule) continue;
 
     if (rule.required && !value.trim()) {
@@ -19,16 +20,68 @@ export function ValidationInputWifi(
       continue;
     }
 
+
     if (rule.minLength && value.length < rule.minLength) {
       errors.push(`${fieldName} deve ter pelo menos ${rule.minLength} caracteres`);
+      break;
     }
 
     if (rule.maxLength && value.length > rule.maxLength) {
       errors.push(`${fieldName} deve ter no máximo ${rule.maxLength} caracteres`);
+      break;
     }
 
     if (rule.pattern && !rule.pattern.test(value)) {
       errors.push(rule.customMessage || `${fieldName} está em formato inválido`);
+      break;
+    }
+  }
+
+
+  const isValid = errors.length === 0;
+
+  // Mostrar mensagens
+  if (!isValid) {
+    errors.forEach(error => showMessage.error(error));
+  } else {
+    showMessage.success('Sucesso!');
+  }
+
+  return { isValid, errors };
+}
+
+export function validationInputSettings(formData: { [key: string]: string },
+  config: ValidationConfig,
+  e?: React.FormEvent<HTMLFormElement>): ValidationResult {
+
+  if (e) e.preventDefault();
+
+  const errors: string[] = [];
+
+  for (const [fieldName, value] of Object.entries(formData)) {
+    const rule = config[fieldName];
+
+    if (!rule) continue;
+
+    if (rule.required && !value.trim()) {
+      errors.push(`${fieldName} é obrigatório`);
+      continue;
+    }
+
+
+    if (rule.minLength && value.length < rule.minLength) {
+      errors.push(`${fieldName} deve ter pelo menos ${rule.minLength} caracteres`);
+      break;
+    }
+
+    if (rule.maxLength && value.length > rule.maxLength) {
+      errors.push(`${fieldName} deve ter no máximo ${rule.maxLength} caracteres`);
+      break;
+    }
+
+    if (rule.pattern && !rule.pattern.test(value)) {
+      errors.push(rule.customMessage || `${fieldName} está em formato inválido`);
+      break;
     }
   }
 
@@ -40,6 +93,7 @@ export function ValidationInputWifi(
   } else {
     showMessage.success('Sucesso!');
   }
+
 
   return { isValid, errors };
 }
@@ -74,4 +128,21 @@ export function validateWifi(IP: string, Gateway: string, Mask: string, DNS: str
   };
 
   return ValidationInputWifi({ IP, Gateway, Mask, DNS, MAC }, config, e);
+}
+
+export function validateSettingsWifi(netWorkName: string, password: string, e?: React.FormEvent<HTMLFormElement>) {
+  const config: ValidationConfig = {
+    netWorkName: {
+      required: false,
+      minLength: 3,
+      maxLength: 25
+    },
+    password: {
+      required: false,
+      minLength: 3,
+      maxLength: 25
+    },
+  };
+
+  return validationInputSettings({ netWorkName, password }, config, e);
 }

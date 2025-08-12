@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import styles from './style.module.css'
 
-export function AccordionItemChild({ title, children }: AccordionItemProps) {
+export function AccordionItemChildTag({ title, temp, children }: AccordionItemProps) {
   const [isOpen, setInputValue] = useState(false);
 
   return (
@@ -14,10 +14,11 @@ export function AccordionItemChild({ title, children }: AccordionItemProps) {
         onClick={() => setInputValue(!isOpen)}
       >
         {title}
+        {temp}
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </button>
       {isOpen && (
-        <div className={styles.accordionContent}>
+        <div className={styles.accordionContentChildTag}>
           {children}
         </div>
       )}
