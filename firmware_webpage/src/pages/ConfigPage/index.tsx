@@ -6,9 +6,10 @@ import { MainTemplate } from "../../components/templates/MainTemplate";
 
 import style from './style.module.css'
 import { useState } from "react";
-import { AccordionItem } from "../../components/AccordionItem";
+
 import { Input } from "../../components/Input";
 import { validateLogin } from "../../utils/ValidationInputLogin";
+import { AccordionItem } from "../../components/AccordionItems/AccordionItem";
 
 export function ConfigPage() {
   const [username, setUsername] = useState('');

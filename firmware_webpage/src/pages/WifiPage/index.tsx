@@ -1,7 +1,7 @@
 
 //import { useState } from 'react'
 import { useState } from 'react'
-import { AccordionItem } from '../../components/AccordionItem'
+
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { Heading } from '../../components/Heading'
@@ -12,6 +12,7 @@ import { validateLogin } from '../../utils/ValidationInputLogin'
 import { validateWifi } from '../../utils/ValidationInputWifi'
 
 import style from './style.module.css'
+import { AccordionItem } from '../../components/AccordionItems/AccordionItem'
 
 export function WifiPage() {
   const [IP, setIp] = useState('');

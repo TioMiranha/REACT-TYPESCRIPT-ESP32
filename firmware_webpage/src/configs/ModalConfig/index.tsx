@@ -1,4 +1,4 @@
-import { AccordionItemChild } from "../../components/AccordionItemChild";
+import { AccordionItemChild } from "../../components/AccordionItems/AccordionItemChild";
 import { Container } from "../../components/Container";
 import { Input } from "../../components/Input";
 

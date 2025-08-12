@@ -1,5 +1,6 @@
 //import { AccordionItem } from "../../components/AccordionItem";
-import { AccordionItemDad } from "../../components/AccordionItemDad";
+
+import { AccordionItemDad } from "../../components/AccordionItems/AccordionItemDad";
 import { Container } from "../../components/Container";
 import { MainTemplate } from "../../components/templates/MainTemplate";
 import { ModalConfig } from "../../configs/ModalConfig";
