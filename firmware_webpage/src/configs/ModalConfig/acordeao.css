@@ -1,0 +1,38 @@
+.acordeao-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Espaço entre os acordeões */
+}
+
+.acordeao-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  /* Importante para a transição */
+}
+
+.acordeao-cabecalho {
+  padding: 15px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  /* Para indicar que é clicável */
+}
+
+.acordeao-corpo {
+  padding: 0 15px;
+  /* Define o padding horizontal */
+  max-height: 0;
+  /* A altura inicial é 0 para estar fechado */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  /* Adiciona uma transição suave */
+}
+
+/* Classe para quando o acordeão estiver aberto */
+.acordeao-corpo.aberto {
+  max-height: 200px;
+  /* Defina uma altura que seja suficiente para o seu conteúdo */
+  padding: 15px;
+  /* Adiciona o padding quando estiver aberto */
+}
