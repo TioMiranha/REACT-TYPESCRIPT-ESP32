@@ -9,7 +9,6 @@
   padding: 0;
 }
 
-
 .accordionHeader {
   box-sizing: border-box;
   display: flex;
@@ -53,7 +52,7 @@
 }
 
 .accordionContent input {
-  color: var(--gray-900);
+  color: var(--gray-100);
 }
 
 @keyframes fadeIn {

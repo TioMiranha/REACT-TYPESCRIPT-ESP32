@@ -5,7 +5,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export type AccordionItemProps = {
   title?: string;
-  temp?: number;
   children: React.ReactNode;
 }
 
