@@ -1,6 +1,6 @@
 .acordeao-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
   /* Espaço entre os acordeões */
 }
@@ -14,7 +14,8 @@
 
 .acordeao-cabecalho {
   padding: 15px;
-  background-color: #f0f0f0;
+  background-color: #d9d9d9;
+  color: #000;
   cursor: pointer;
   /* Para indicar que é clicável */
 }
@@ -31,7 +32,7 @@
 
 /* Classe para quando o acordeão estiver aberto */
 .acordeao-corpo.aberto {
-  max-height: 200px;
+  max-height: 500px;
   /* Defina uma altura que seja suficiente para o seu conteúdo */
   padding: 15px;
   /* Adiciona o padding quando estiver aberto */
