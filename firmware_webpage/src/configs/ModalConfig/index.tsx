@@ -1,7 +1,7 @@
 // Exemplo corrigido com TypeScript
 import { Container } from "../../components/Container";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './acordeao.css';
 
 interface DadosRTD {

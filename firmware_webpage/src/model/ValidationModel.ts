@@ -7,7 +7,7 @@ export type ValidationRule = {
 };
 
 export type ValidationConfig = {
-  [fieldName: string]: ValidationRule;
+  [fieldName: string | number]: ValidationRule;
 };
 
 export type ValidationResult = {

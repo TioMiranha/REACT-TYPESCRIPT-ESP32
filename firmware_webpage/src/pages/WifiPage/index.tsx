@@ -1,13 +1,12 @@
 import { useState } from 'react'
-
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { Heading } from '../../components/Heading'
 import { Input } from '../../components/Input'
 import { MainTemplate } from '../../components/templates/MainTemplate'
 import { Check } from 'lucide-react'
-import { validateCredentialsWifi, validateWifi } from '../../utils/ValidationInputWifi'
 import { AccordionItem } from '../../components/AccordionItems/AccordionItem'
+import { validateCredentialsWifi, validateWifi } from '../../DataMapConfig/configWifi'
 
 import style from './style.module.css'
 
@@ -36,7 +35,6 @@ export function WifiPage() {
 
   async function handleCredentialsWifi(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("submit cacete");
 
     const credentialsWifi = validateCredentialsWifi(apIP, apGateway, apMask, apNetWorkName, apPassword);
     if (!credentialsWifi.isValid) return;
