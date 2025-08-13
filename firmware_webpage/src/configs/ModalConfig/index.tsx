@@ -12,11 +12,11 @@ interface DadosRTD {
 }
 
 const dadosRTD: DadosRTD[] = [
-  { id: 1, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 2, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 3, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 4, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 5, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' }
+  { id: 0, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 1, tag: 'Tag 1', temp: '90 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 2, tag: 'Tag 1', temp: '80 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 3, tag: 'Tag 1', temp: '75 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 4, tag: 'Tag 1', temp: '65 °C', detalhes: 'Detalhes do RTD 1' }
 
   // ... adicione mais itens aqui se necessário
 ];
@@ -26,24 +26,33 @@ function Acordeoes() {
   const [acordeaoAberto, setAcordeaoAberto] = useState<number | null>(null);
 
   const lidarComClique = (id: number) => {
-    setAcordeaoAberto(acordeaoAberto === id ? null : id);
+    setAcordeaoAberto(acordeaoAberto == id ? null : id);
   };
 
   return (
     <div className="acordeao-container">
-      {dadosRTD.map((item) => (
-        <div key={item.id} className="acordeao-item">
-          <div
-            className="acordeao-cabecalho"
-            onClick={() => lidarComClique(item.id)}
-          >
-            {item.tag} <br /> {item.temp}
+      {dadosRTD.map((item) => {
+        const aberto = acordeaoAberto === item.id;
+        return (
+          <div key={item.id} className="acordeao-item">
+            <div
+              className="acordeao-cabecalho"
+              onClick={() => lidarComClique(item.id)}
+            >
+              {item.tag} <br /> {item.temp}
+            </div>
+            <div
+              className={`acordeao-corpo ${aberto ? 'aberto' : ''}`}
+              style={{
+                maxHeight: aberto ? '200px' : '0',
+                padding: aberto ? '15px' : '0 15px',
+              }}
+            >
+              <p>{item.detalhes}</p>
+            </div>
           </div>
-          <div className={`acordeao-corpo ${acordeaoAberto === item.id ? 'aberto' : ''}`}>
-            <p>{item.detalhes}</p>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
