@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 import styles from './style.module.css'
 
-export function AccordionItemChild({ title, children }: AccordionItemProps) {
+export function AccordionItemChildTag({ title, children }: AccordionItemProps) {
   const [isOpen, setInputValue] = useState(false);
 
   return (
