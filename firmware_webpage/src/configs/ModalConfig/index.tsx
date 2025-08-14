@@ -13,10 +13,10 @@ interface DadosRTD {
 
 const dadosRTD: DadosRTD[] = [
   { id: 0, tag: 'Tag 1', temp: '100 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 1, tag: 'Tag 1', temp: '90 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 2, tag: 'Tag 1', temp: '80 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 3, tag: 'Tag 1', temp: '75 °C', detalhes: 'Detalhes do RTD 1' },
-  { id: 4, tag: 'Tag 1', temp: '65 °C', detalhes: 'Detalhes do RTD 1' }
+  { id: 1, tag: 'Tag 2', temp: '90 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 2, tag: 'Tag 3', temp: '80 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 3, tag: 'Tag 4', temp: '75 °C', detalhes: 'Detalhes do RTD 1' },
+  { id: 4, tag: 'Tag 56', temp: '65 °C', detalhes: 'Detalhes do RTD 1' }
 
   // ... adicione mais itens aqui se necessário
 ];
@@ -38,15 +38,12 @@ function Acordeoes() {
             <div
               className="acordeao-cabecalho"
               onClick={() => lidarComClique(item.id)}
+              aria-expanded={aberto}
             >
               {item.tag} <br /> {item.temp}
             </div>
             <div
               className={`acordeao-corpo ${aberto ? 'aberto' : ''}`}
-              style={{
-                maxHeight: aberto ? '200px' : '0',
-                padding: aberto ? '15px' : '0 15px',
-              }}
             >
               <p>{item.detalhes}</p>
             </div>

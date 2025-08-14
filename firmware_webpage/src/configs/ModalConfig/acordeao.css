@@ -2,10 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: flex-start;
   /* Espaço entre os acordeões */
 }
 
 .acordeao-item {
+  flex: 1 1 200px;
+  /* ou um valor fixo, ex: 250px */
+  min-width: 200px;
+  max-width: 300px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -32,7 +38,7 @@
 
 /* Classe para quando o acordeão estiver aberto */
 .acordeao-corpo.aberto {
-  max-height: 500px;
+  max-height: 1000px;
   /* Defina uma altura que seja suficiente para o seu conteúdo */
   padding: 15px;
   /* Adiciona o padding quando estiver aberto */
