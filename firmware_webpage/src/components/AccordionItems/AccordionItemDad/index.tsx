@@ -14,9 +14,9 @@ export function AccordionItemDad({ title, children }: AccordionItemDadProps) {
 
   return (
 
-    <div className={styles.AccordionItem} >
+    <div className={styles.AccordionItemDad} >
       <button
-        className={styles.accordionHeader}
+        className={styles.accordionHeaderDad}
         onClick={() => setInputValue(!isOpen)}
       >
         {title}
@@ -24,7 +24,7 @@ export function AccordionItemDad({ title, children }: AccordionItemDadProps) {
       </button>
       {
         isOpen && (
-          <div className={styles.accordionContent}>
+          <div className={styles.accordionContentDad}>
             {children}
           </div>
         )

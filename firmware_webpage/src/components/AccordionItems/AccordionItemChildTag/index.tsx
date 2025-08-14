@@ -8,16 +8,16 @@ export function AccordionItemChild({ title, children }: AccordionItemProps) {
   const [isOpen, setInputValue] = useState(false);
 
   return (
-    <div className={styles.accordionItem}>
+    <div className={styles.accordionItemChild}>
       <button
-        className={styles.accordionHeader}
+        className={styles.accordionHeaderChild}
         onClick={() => setInputValue(!isOpen)}
       >
         {title}
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </button>
       {isOpen && (
-        <div className={styles.accordionContent}>
+        <div className={styles.accordionContentChild}>
           {children}
         </div>
       )}

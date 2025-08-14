@@ -1,4 +1,4 @@
-.accordionItem {
+.accordionItemChild {
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -9,7 +9,7 @@
   padding: 0;
 }
 
-.accordionHeader {
+.accordionHeaderChild {
   box-sizing: border-box;
   display: flex;
   width: 35vw;
@@ -26,17 +26,17 @@
   gap: 1.5rem;
 }
 
-.accordionHeader:hover {
+.accordionHeaderChild:hover {
   background-color: var(--gray-700);
 }
 
-.accordionHeader svg {
+.accordionHeaderChild svg {
   width: 1.5rem;
   height: 1.5rem;
   transition: transform 0.3s ease;
 }
 
-.accordionContent {
+.accordionContentChild {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
   overflow: hidden;
 }
 
-.accordionContent:hover {
+.accordionContentChild:hover {
   background-color: var(--primary);
 }
 
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 992px) {
-  .accordionHeader {
+  .accordionHeaderChild {
     padding: 0.8rem;
     gap: 1rem;
     font-size: 1.4rem;
@@ -80,12 +80,12 @@
 
 @media (max-width: 768px) {
 
-  .accordionHeader svg {
+  .accordionHeaderChild svg {
     width: 1.2rem;
     height: 1.2rem;
   }
 
-  .accordionContent {
+  .accordionContentChild {
     padding: 0.8rem;
     gap: 1rem;
   }
