@@ -3,14 +3,13 @@
   flex-wrap: wrap;
   gap: 10px;
   align-items: flex-start;
+  justify-content: last baseline;
   /* Espaço entre os acordeões */
 }
 
 .acordeao-item {
-  flex: 1 1 200px;
   /* ou um valor fixo, ex: 250px */
-  min-width: 200px;
-  max-width: 300px;
+  width: 120px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -19,27 +18,256 @@
 }
 
 .acordeao-cabecalho {
+  height: 120px;
   padding: 15px;
-  background-color: #d9d9d9;
   color: #000;
   cursor: pointer;
   /* Para indicar que é clicável */
 }
 
-.acordeao-corpo {
-  padding: 0 15px;
-  /* Define o padding horizontal */
-  max-height: 0;
-  /* A altura inicial é 0 para estar fechado */
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-  /* Adiciona uma transição suave */
+.acordeao-cabecalho .header-group {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 12px;
 }
 
-/* Classe para quando o acordeão estiver aberto */
+.header-group p span {
+  font-weight: bold
+}
+
+/* Ajustes no container principal do formulário */
+.acordeao-corpo {
+  /* Mantém as propriedades que você já tem */
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  /* Centraliza horizontalmente */
+  transform: translateX(-50%);
+  /* Ajuste para centralizar perfeitamente */
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  background-color: #314251;
+  /* Cor de fundo principal do formulário */
+  border-radius: 10px;
+  /* Adiciona bordas arredondadas ao formulário */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Adiciona uma sombra suave */
+  width: 90%;
+  /* Largura do formulário em dispositivos menores */
+  max-width: 450px;
+  /* Largura máxima para centralizar bem em telas maiores */
+}
+
 .acordeao-corpo.aberto {
-  max-height: 1000px;
-  /* Defina uma altura que seja suficiente para o seu conteúdo */
+  max-height: 800px;
+  /* Altura suficiente para o conteúdo caber */
+  padding: 20px;
+  width: 90%;
+}
+
+/* Estilo para o título "Editando" */
+.acordeao-corpo h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilo para a linha divisória */
+.acordeao-corpo hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  /* Linha divisória mais sutil */
+  margin: 10px 0 20px;
+}
+
+/* Estilo para o grupo de inputs lado a lado */
+.formGroup {
+  display: flex;
+  gap: 15px;
+  /* Espaço entre os inputs */
+  margin-bottom: 20px;
+}
+
+.formGroup .inputContent {
+  flex: 1;
+  /* Faz com que cada input ocupe o mesmo espaço */
+}
+
+/* Estilo geral para o container de cada input */
+.inputContent {
+  margin-bottom: 20px;
+  /* Espaço entre os campos */
+}
+
+/* Estilo para o texto do label */
+.inputContent label {
+  color: #c7d1dd;
+  /* Cor do texto do label */
+  display: block;
+  /* Para que o label ocupe toda a largura */
+  margin-bottom: 8px;
+  /* Espaço entre o label e o input */
+  font-size: 0.9rem;
+}
+
+/* Estilo geral para os inputs de texto, número e range */
+.inputContent input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  border: none;
+  outline: none;
+  /* Remove a borda de foco padrão */
+  background-color: #273747;
+  /* Cor de fundo dos inputs */
+  color: #fff;
+  /* Cor do texto digitado */
+  font-size: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Sombra interna para profundidade */
+}
+
+/* Estilo para o placeholder (texto dentro do input) */
+.inputContent input::placeholder {
+  color: #7b8e9d;
+  /* Cor do placeholder */
+}
+
+/* ------------------- Estilização dos sliders (type="range") ------------------- */
+
+/* Estilo para a barra do slider (track) - WebKit (Chrome, Safari) */
+.inputContent input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #273747;
+  /* Cor da barra de fundo */
+  border-radius: 4px;
+}
+
+/* Estilo para o seletor (thumb) do slider - WebKit */
+.inputContent input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  /* Formato circular */
+  background: #84a2c5;
+  /* Cor do seletor */
+  cursor: pointer;
+  margin-top: -6px;
+  /* Ajuste para centralizar o thumb na barra */
+  border: 2px solid #5d7593;
+  /* Borda do seletor */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------- Estilização do checkbox ------------------- */
+
+/* Esconde o checkbox padrão */
+.inputContent input[type="checkbox"] {
+  display: none;
+}
+
+/* Estilo do label para o checkbox */
+.inputContent .checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  /* Evita que o texto seja selecionado */
+}
+
+.inputContent .checkbox-label {
+  margin-left: 10px;
+  color: #c7d1dd;
+  font-size: 0.9rem;
+}
+
+/* Cria o visual do checkbox customizado */
+.inputContent .checkbox-container::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-color: #273747;
+  /* Fundo do quadrado */
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para o ícone de "check" quando o checkbox está marcado */
+.inputContent input[type="checkbox"]:checked+.checkbox-container::before {
+  background-color: #4CAF50;
+  /* Cor de destaque quando marcado */
+  border-color: #4CAF50;
+}
+
+.inputContent .checkbox-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.2s ease;
+}
+
+.inputContent input[type="checkbox"]:checked+.checkbox-container::after {
+  transform: translateY(-50%) scale(1);
+}
+
+/* ------------------- Estilização do botão "Salvar" ------------------- */
+.acordeao-corpo .btn {
+  width: 100%;
   padding: 15px;
-  /* Adiciona o padding quando estiver aberto */
+  background-color: #5d7593;
+  /* Cor de fundo do botão */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.acordeao-corpo .btn:hover {
+  background-color: #4a617a;
+  /* Cor mais escura no hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.acordeao-container.push {
+
+  margin-top: 330px;
+
+}
+
+.selected {
+  border: var(--primary) 1px solid;
+  background-color: var(--primary) !important;
+}
+
+.selected p {
+  color: var(--text-over-primary);
+}
+
+.bg-gray {
+  background-color: #d9d9d9;
 }
